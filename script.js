@@ -13,8 +13,20 @@ for (const btn of allBtn) {
     const price2 = document.createElement("p");
     price2.innerText = price;
 
+    event.target.parentNode.parentNode.style.backgroundColor = "gray";
+
     li.appendChild(place);
     li.appendChild(price2);
+
+    const budget = document.getElementById("budget").innerText;
+    const convertedBudget = parseInt(budget);
+
+    if (convertedBudget - parseInt(price) < 0) {
+      alert("low budget");
+      return;
+    }
+    document.getElementById("budget").innerText =
+      convertedBudget - parseInt(price);
 
     placeContainer.appendChild(li);
 
